@@ -21,5 +21,12 @@ def generateArt():
 
     img.show()
 
+    # saving the image
+    folder_name = "generated_art"
+    folder_length = len([folder_name for folder_name in os.listdir(
+        '.') if os.path.isfile(folder_name)])
+    img = img.save(
+        f"generated_art/art{folder_length*random.randint(1, 1000)}.png")
+
 
 generateArt()
