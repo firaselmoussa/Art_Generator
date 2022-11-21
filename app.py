@@ -1,15 +1,18 @@
 from PIL import Image
+import random
 
 
-def flag(c, w=100, h=100):
-    c1, c2, c3 = c.split()
-    img = Image.new("RGB", (w*3, h), c1)
-    lay1 = Image.new("RGB", (w, h), c2)
-    lay2 = Image.new("RGB", (w, h), c3)
-    img.paste(lay1, (w, 0))
-    img.paste(lay2, (w*2, 0))
+def generateArt():
+
+    img = Image.new("RGB", (1200, 1000), "black")
+
+    for i in range(img.width):
+        for j in range(img.height):
+            img.putpixel((i, j), (random.randint(0, 255), random.randint(
+                0, 255), random.randint(0, 255), random.randint(0, 255)))
+
     img.show()
-    img = img.save("generated_art/img.png")
+    img = img.save("generated_art/img1.png")
 
 
-flag("gold blue pink", 200, 350)
+generateArt()
